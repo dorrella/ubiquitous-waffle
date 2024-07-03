@@ -1,4 +1,4 @@
-FROM golang:latest as builder
+FROM golang:1.22.5-alpine3.20 as builder
 WORKDIR /build
 COPY ./ ./
 RUN <<EOF

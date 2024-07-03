@@ -1,0 +1,20 @@
+opentelemetry-collector:
+  mode: deployment
+  image:
+    repository: "localhost:31000/otel-collector"
+    tag: "latest"
+    pullPolicy: Always
+  configMap:
+    create: false
+    existingName: otel-collector
+  ports:
+    prometheus:
+      enabled: true
+      containerPort: 9000
+      servicePort: 9000
+      protocol: TCP
+    health:
+      enabled: true
+      containerPort: 13133
+      servicePort: 13133
+      protocol: TCP

@@ -1,0 +1,13 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  name: otel-collector
+  namespace: default
+  labels:
+    release: monitoring
+spec:
+  staticConfigs:
+    - labels:
+        job: prometheus
+      targets:
+        - "collector-opentelemetry-collector.default.svc.cluster.local:9000"

@@ -4,12 +4,32 @@
 
 replicaCount: 1
 
+serviceConfig:
+  database:
+    password: ""
+    user: "admin"
+    database: "service"
+    hostname: "postgress-postgresql.default.svc.cluster.local"
+    port: 5432
+  telemetry:
+    enabled: false
+    tracing: true
+    metrics: false
+    logs: false
+    collector:
+      url: "collector-opentelemetry-collector.default.svc.cluster.local"
+      port: 4317
+
 image:
   repository: localhost:31000/service
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
 
+initImage:
+  repository: localhost:31000/init
+  pullPolicy: Always
+  tag: "latest"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
@@ -37,8 +57,7 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: ClusterIP
-  port: 80
+  port: 32000
   containerPort: 8000
 
 ingress:

@@ -1,0 +1,15 @@
+serviceConfig:
+  database:
+    password: "mypassword"
+    user: "admin"
+    database: "service"
+    hostname: "postgres-postgresql.default.svc.cluster.local"
+    port: 5432
+  telemetry:
+    enabled: true
+    tracing: true
+    metrics: true
+    logs: true
+  service:
+    name: "my-service"
+    

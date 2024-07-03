@@ -3,3 +3,9 @@
 
 #binaries
 service/service
+
+#charts
+*.tgz
+
+#logfile from tests
+log.txt

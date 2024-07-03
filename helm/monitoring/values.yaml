@@ -1,0 +1,5 @@
+kube-prometheus-stack:
+  scrapeConfigSelectorNilUsesHelmValues: true
+  scrapeConfigSelector:
+    matchLabels:
+      prometheus: prometheus-selector
