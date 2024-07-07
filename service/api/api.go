@@ -1,3 +1,4 @@
+// stub for api routes. handles nothing itself
 package api
 
 import (

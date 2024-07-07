@@ -1,3 +1,5 @@
+// small sample restful service
+
 package main
 
 import (
@@ -16,6 +18,7 @@ import (
 	"time"
 )
 
+// initalizes routes with gorilla mux
 func setupRouter(app *types.App) *mux.Router {
 	r := mux.NewRouter()
 	otel.GetMuxMiddleware(r, app.Config)
@@ -27,6 +30,8 @@ func setupRouter(app *types.App) *mux.Router {
 	return r
 }
 
+// main entrypoint. initializes components and then starts
+// routers. also listens for sigint
 func main() {
 	// Handle SIGINT (CTRL+C) gracefully.
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt)

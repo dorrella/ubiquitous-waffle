@@ -1,3 +1,4 @@
+// routes handlers for /api/customer
 package customer
 
 import (

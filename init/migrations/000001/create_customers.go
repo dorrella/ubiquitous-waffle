@@ -8,6 +8,7 @@ import (
 
 type CreateSomething struct{}
 
+// entrypoint for data migrations
 func (c *CreateSomething) Run(db *sqlx.DB) {
 	fmt.Println("example")
 }

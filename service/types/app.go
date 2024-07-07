@@ -1,3 +1,4 @@
+// common types for database and api
 package types
 
 import (
@@ -9,6 +10,7 @@ import (
 	"go.opentelemetry.io/otel/trace"
 )
 
+// common apt context
 type App struct {
 	Config    *conf.Config
 	Db        *sqlx.DB
@@ -18,6 +20,8 @@ type App struct {
 
 // wrapper around otel Tracer and Meter
 // here to prevent circual import with otel lib
+//
+// todo use interface instead
 type Telemetry struct {
 }
 

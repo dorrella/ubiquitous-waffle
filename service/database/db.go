@@ -1,3 +1,5 @@
+//database connection with pgx and sqlx
+
 package database
 
 import (
@@ -26,6 +28,7 @@ func InitPool(ctx context.Context, app *types.App) error {
 			app.Log.Info(ctx, err.Error())
 			return
 		}
+		//check for tracing
 		if app.Config.Telemetry.Enabled && app.Config.Telemetry.Tracing {
 			app.Log.Info(ctx, "enabling db traces")
 			pgx_config.ConnConfig.Tracer = otel.GetDbTracer()
